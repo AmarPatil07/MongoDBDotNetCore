@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MangoDotCore.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pincode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rank)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pincode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rank)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.pincode }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.pincode }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.pincode })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
